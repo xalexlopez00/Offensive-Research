@@ -1,5 +1,3 @@
-¡Entendido! Vamos a crear el README.md definitivo. He aplicado un diseño de "Arquitectura Limpia", separando cada sección con líneas horizontales, usando tablas para la estructura de archivos y bloques de código con resaltado sintáctico.Este diseño es el que usan los desarrolladores en GitHub para que sus proyectos destaquen.📄 Borra TODO tu archivo README.md y pega exactamente esto:Markdown# 🛡️ Network Shield - Remote Administration System (PoC)
-
 Este proyecto es una **Prueba de Concepto (PoC)** diseñada para estudiar el funcionamiento de los sistemas de administración remota (C2) y las técnicas de persistencia en entornos Windows.
 
 > [!CAUTION]
