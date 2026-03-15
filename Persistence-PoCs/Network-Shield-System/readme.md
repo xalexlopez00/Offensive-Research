@@ -31,7 +31,7 @@ El panel será accesible en: http://localhost/Network-Shield-System/server/index
 Sigue este orden estricto para establecer el enlace:
 
 🟢 Paso 1: Iniciar el Receptor (Master)
-Abre una terminal en la carpeta master/ y lanza el centro de control ejecutando:
+Abre una terminal en la carpeta master/ y lanza el centro de control ejecutando el comando:
 python receptor.py
 
 🔵 Paso 2: Lanzar el Agente (Client)
@@ -39,7 +39,7 @@ Ejecuta el script en el equipo objetivo para iniciar la conexión:
 
 Modo Manual: python client/agente.py
 
-Modo Invisible: Renombra a agente.pyw y ejecútalo.
+Modo Invisible: Renombra el archivo a agente.pyw y ejecútalo.
 
 Simulación Web: Accede a http://localhost/Network-Shield-System/server/trampa.php
 
@@ -59,13 +59,15 @@ Para desactivar el inicio automático y dejar el sistema limpio, ejecuta:
 reg delete "HKCU\Software\Microsoft\Windows\CurrentVersion\Run" /v "SecurityUpdate" /f
 
 📂 Estructura del Repositorio
-server/: Panel de control web y base de datos.
+Carpeta server/: Panel de control web, API de reporte y gestión de comandos.
 
-client/: Ejecución de comandos en el objetivo (agente).
+Carpeta client/: Script del agente para ejecución en el objetivo.
 
-master/: Consola interactiva C2 (Command & Control).
+Carpeta master/: Consola interactiva C2 para el administrador.
 
 📋 Comandos de Auditoría Disponibles
+Una vez establecida la conexión, puedes utilizar:
+
 💻 Sistema: whoami, systeminfo, tasklist, ipconfig.
 
 📂 Archivos: dir, cd .., type archivo.txt.
@@ -75,8 +77,8 @@ master/: Consola interactiva C2 (Command & Control).
 🚪 Sesión: exit (Cierra la conexión de forma segura).
 
 🛠️ Troubleshooting (Solución de Problemas)
-¿No conecta?: Verifica que el puerto 4444 esté abierto en el Firewall.
+¿No conecta?: Verifica que el puerto 4444 esté abierto en el Firewall de Windows.
 
-¿No aparece en la Web?: Revisa que la URL en agente.py sea correcta.
+¿No aparece en la Web?: Revisa que la URL en agente.py sea idéntica a tu ruta en XAMPP.
 
-¿Error de SQL?: Asegúrate de que el usuario de MySQL sea root sin contraseña.
+¿Error de SQL?: Asegúrate de que el usuario de MySQL sea root y la base de datos exista.
