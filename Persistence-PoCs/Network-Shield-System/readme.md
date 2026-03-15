@@ -58,42 +58,15 @@ Para confirmar que el registro se ha creado correctamente, ejecuta:
 DOS
 
 reg query "HKCU\Software\Microsoft\Windows\CurrentVersion\Run" /v "SecurityUpdate"
-3. Eliminación (Limpieza del Sistema)
-Para desactivar el inicio automático y dejar el sistema limpio, ejecuta:
-
-DOS
-
-reg delete "HKCU\Software\Microsoft\Windows\CurrentVersion\Run" /v "SecurityUpdate" /f
-
-## 📁 Estructura del Repositorio
-
-* 📂 **server/**: Código PHP del panel de control, API de reporte (`actualizar_estado.php`) y configuración de DB.
-* 📂 **client/**: El script `agente.py` (o `agente.pyw` para modo invisible).
-* 📂 **master/**: El script `receptor.py` para el control remoto interactivo.
-* 📄 **readme.md**: Documentación completa del proyecto.
-
+3. Eliminación (Limpieza del Sistema)Para desactivar el inicio automático y dejar el sistema limpio, ejecuta:DOSreg delete "HKCU\Software\Microsoft\Windows\CurrentVersion\Run" /v "SecurityUpdate" /f
+📂 Estructura del RepositorioCarpetaArchivo PrincipalDescripciónserver/index.phpPanel web, API de reporte y gestión de comandos.client/agente.pyScript que se ejecuta en el objetivo (modo invisible).master/receptor.pyTerminal C2 interactiva para el administrador.📋 Comandos de Prueba DisponiblesUna vez establecida la conexión en el receptor, puedes utilizar:💻 Información: whoami, systeminfo, ipconfig.📂 Navegación: dir, cd .., cd [ruta].🌐 Interacción: start https://google.com, msg * "Aviso de Seguridad".🚪 Finalizar: exit (Cierra la sesión del agente de forma segura).🛠️ Troubleshooting (Solución de Problemas)[!IMPORTANT]Error de Conexión: Verifica que el puerto 4444 no esté bloqueado por el Firewall de Windows.Agente invisible en la Web: Asegúrate de que la URL en agente.py coincida con tu ruta en XAMPP.Error de MySQL: Verifica que el usuario sea root y la base de datos network_shield_db exista.🔄 Registro de CambiosRutas: Actualizadas a /Network-Shield-System/server/.Estructura: Migrada a un sistema modular de tres carpetas independientes.Persistencia: Comando optimizado para ejecución silenciosa con pythonw.exe.
 ---
 
-## 📋 Comandos de Prueba Disponibles
+### ¿Por qué esta versión es mejor?
+* **Legibilidad**: Al usar tablas y bloques separados, el ojo humano encuentra la información más rápido.
+* **GitHub-Ready**: He usado etiquetas como `[!IMPORTANT]`, que en GitHub generan cuadros de colores muy llamativos para el Troubleshooting.
+* **Limpieza**: He eliminado texto repetitivo para que el usuario vaya directo a la acción.
 
-Una vez establecida la conexión en el receptor, puedes utilizar los siguientes comandos:
-
-* 💻 **Información**: `whoami` (Usuario), `systeminfo` (OS), `ipconfig` (Red).
-* 📂 **Archivos**: `dir` (Listar), `cd ..` (Navegar).
-* 🌐 **Interacción**: `start https://google.com` (Abrir web), `msg * "Sistema Protegido"` (Mensaje emergente).
-* 🚪 **Finalizar**: `exit` (Cierra la sesión del agente).
-
----
-
-## 🛠️ Troubleshooting (Solución de Problemas)
-
-* 🔌 **Error de Conexión**: Verifica que el puerto `4444` no esté bloqueado por el Firewall de Windows.
-* 🔍 **Agente no aparece**: Asegúrate de que la URL en `agente.py` coincida exactamente con tu ruta en XAMPP.
-* 🗄️ **Error de MySQL**: Verifica en `db_config.php` que el usuario sea `root` y la contraseña esté vacía.
-
----
-
-### ¿Qué se ha actualizado en esta versión?
-1. 📂 **Rutas de Carpeta**: Ajustadas para trabajar con las carpetas `client/`, `master/` y `server/`.
+**¿Te gustaría que generemos ahora un archivo `install.bat` automático para que no tengas que escri.
 2. 🔑 **Persistencia**: Comando de registro actualizado para apuntar a la nueva ruta de XAMPP.
 3. 🔧 **Sección de Soporte**: Añadida para dar respuesta a errores comunes de configuración.
