@@ -32,37 +32,18 @@ Este proyecto es una **Prueba de Concepto (PoC)** diseñada para estudiar el fun
 
 Para establecer una conexión exitosa, sigue este orden:
 
-1.  **Iniciar el Receptor (Master)**: Abre una terminal en la carpeta `master/` y ejecuta:
-    ```bash
-    python receptor.py
-    ```
-2.  **Lanzar el Agente (Client)**:
-    * **Manual**: Ejecutar `python client/agente.py`.
-    * **Simulación Web**: Acceder vía navegador a: `http://localhost/Network-Shield-System/server/trampa.php`
-
----
-
-## 🔐 Implementación de Persistencia
-
-La persistencia permite que el agente se ejecute automáticamente cada vez que el usuario inicie sesión en Windows.
-
-### 1. Instalación (Crear la persistencia)
-Envía este comando desde la terminal del receptor para registrar el agente:
-
-```dos
-reg add "HKCU\Software\Microsoft\Windows\CurrentVersion\Run" /v "SecurityUpdate" /t REG_SZ /d "pythonw.exe C:\xampp\htdocs\Network-Shield-System\client\agente.pyw" /f
+1. **Iniciar el Receptor (Master)**: Abre una terminal en la carpeta `master/` y ejecuta:
+   ```bash
+   python receptor.py
+Lanzar el Agente (Client):Manual: Ejecutar python client/agente.py.Simulación Web: Acceder vía navegador a: http://localhost/Network-Shield-System/server/trampa.php🔐 Implementación de PersistenciaLa persistencia permite que el agente se ejecute automáticamente cada vez que el usuario inicie sesión en Windows.1. Instalación (Crear la persistencia)Envía este comando desde la terminal del receptor para registrar el agente:DOSreg add "HKCU\Software\Microsoft\Windows\CurrentVersion\Run" /v "SecurityUpdate" /t REG_SZ /d "pythonw.exe C:\xampp\htdocs\Network-Shield-System\client\agente.pyw" /f
 2. Comprobación (Verificar estado)Para confirmar que el registro se ha creado correctamente, ejecuta:DOSreg query "HKCU\Software\Microsoft\Windows\CurrentVersion\Run" /v "SecurityUpdate"
 3. Eliminación (Limpieza del Sistema)Para desactivar el inicio automático y dejar el sistema limpio, ejecuta:DOSreg delete "HKCU\Software\Microsoft\Windows\CurrentVersion\Run" /v "SecurityUpdate" /f
 📂 Estructura del RepositorioCarpetaArchivo PrincipalDescripciónserver/index.phpPanel web, API de reporte y gestión de comandos.client/agente.pyScript que se ejecuta en el objetivo (modo invisible).master/receptor.pyTerminal C2 interactiva para el administrador.📋 Comandos de Prueba DisponiblesUna vez establecida la conexión en el receptor, puedes utilizar:💻 Información: whoami, systeminfo, ipconfig.📂 Navegación: dir, cd .., cd [ruta].🌐 Interacción: start https://google.com, msg * "Aviso de Seguridad".🚪 Finalizar: exit (Cierra la sesión del agente de forma segura).🛠️ Troubleshooting (Solución de Problemas)[!IMPORTANT]Error de Conexión: Verifica que el puerto 4444 no esté bloqueado por el Firewall de Windows.Agente invisible en la Web: Asegúrate de que la URL en agente.py coincida con tu ruta en XAMPP.Error de MySQL: Verifica que el usuario sea root y la base de datos network_shield_db exista.🔄 Registro de CambiosRutas: Actualizadas a /Network-Shield-System/server/.Estructura: Migrada a un sistema modular de tres carpetas independientes.Persistencia: Comando optimizado para ejecución silenciosa con pythonw.exe.
 ---
 
-### 💡 Instrucciones para VS Code:
-1. Abre tu archivo `readme.md`.
-2. Borra todo el contenido que se ve mal.
-3. Pega el código que te acabo de dar.
-4. Presiona `Ctrl + S` para guardar.
-5. (Opcional) Presiona `Ctrl + Shift + V` para ver la **previsualización** y confirmar que ahora se ve perfecto.
+### 💡 ¿Cómo aplicarlo ahora?
+1. En **VS Code**, pulsa `Ctrl + A` dentro de tu `README.md` y dale a **Suprimir** (borra todo).
+2. Copia el bloque de arriba (desde `# 🛡️ Network Shield` hasta el final) y pégalo.
+3. Guarda con `Ctrl + S`.
 
-¿Quieres que te ayude con alguna otra parte del código o ya lo tienes todo listo para la pri
-2. 🔑 **Persistencia**: Comando de registro actualizado para apuntar a la nueva ruta de XAMPP.
-3. 🔧 **Sección de Soporte**: Añadida para dar respuesta a errores comunes de configuración.
+¿Te gustaría que te ayude a generar una imagen de portada para el proyecto o pasamos a probar los
