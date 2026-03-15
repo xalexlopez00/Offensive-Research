@@ -1,0 +1,34 @@
+-- ==========================================================
+-- ESTRUCTURA DE BASE DE DATOS: NETWORK SHIELD SYSTEM
+-- ==========================================================
+
+-- 1. Crear la base de datos con soporte para caracteres especiales
+CREATE DATABASE IF NOT EXISTS network_shield_db 
+CHARACTER SET utf8mb4 
+COLLATE utf8mb4_general_ci;
+
+USE network_shield_db;
+
+-- 2. Crear la tabla de dispositivos
+-- Usamos ip_address como UNIQUE para que el Panel no se llene de filas repetidas
+CREATE TABLE IF NOT EXISTS dispositivos (
+    id INT(11) AUTO_INCREMENT PRIMARY KEY,
+    ip_address VARCHAR(45) NOT NULL UNIQUE,
+    nombre_dispositivo VARCHAR(100) DEFAULT 'Desconocido',
+    sistema_operativo VARCHAR(100) DEFAULT 'Windows',
+    ultimo_comando VARCHAR(255) DEFAULT 'ninguno',
+    fecha_conexion TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
+) ENGINE=InnoDB;
+
+-- 3. Registro de prueba inicial
+-- Esto sirve para confirmar que el panel index.php funciona nada más instalarlo
+INSERT INTO dispositivos (ip_address, nombre_dispositivo, sistema_operativo, ultimo_comando) 
+VALUES ('127.0.0.1', 'PC-ADMIN-LOCAL', 'Windows 10/11', 'systeminfo')
+ON DUPLICATE KEY UPDATE fecha_conexion = CURRENT_TIMESTAMP;
+
+-- ==========================================================
+-- INSTRUCCIONES RÁPIDAS:
+-- 1. Ve a http://localhost/phpmyadmin
+-- 2. Selecciona la pestaña "SQL"
+-- 3. Pega este código y pulsa "Continuar"
+-- ==========================================================
