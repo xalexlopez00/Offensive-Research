@@ -1,36 +1,7 @@
-# 🛡️ Network Shield - Remote Administration System (PoC)
+🛡️ Network Shield - Remote Administration System (PoC)
+Este proyecto es una Prueba de Concepto (PoC) diseñada para estudiar el funcionamiento de los sistemas de administración remota (C2) y las técnicas de persistencia en entornos Windows.
 
-Este proyecto es una **Prueba de Concepto (PoC)** diseñada para estudiar el funcionamiento de los sistemas de administración remota (C2) y las técnicas de persistencia en entornos Windows.
-
-> [!CAUTION]
-> **⚠️ AVISO LEGAL:** Este software ha sido creado exclusivamente con fines educativos y de investigación en ciberseguridad. El autor no se hace responsable del mal uso de este código. El uso en sistemas sin autorización es ilegal.
-
----
-
-## 🛠️ Requisitos del Sistema
-
-Para el correcto funcionamiento del ecosistema, asegúrate de tener instalado:
-
-* **XAMPP**: Servidor Apache y MySQL (MariaDB).
-* **Python 3.x**: Instalado en el PATH del sistema.
-* **Librerías**: Ejecuta `pip install requests` en tu terminal.
-* **Base de Datos**: Importar el esquema incluido en `server/db.txt`.
-
----
-
-## 🚀 Guía de Instalación y Configuración
-
-### 1. Preparación de la Base de Datos
-1.  Inicia **Apache** y **MySQL** desde el panel de XAMPP.
-2.  Accede a `http://localhost/phpmyadmin`.
-3.  Crea una base de datos llamada `network_shield_db`.
-4.  Importa el contenido de `server/db.txt` en la pestaña **SQL**.
-
-### 2. Configuración del Servidor Web
-1.  Mueve la carpeta `Network-Shield-System` a `C:\xampp\htdocs\`.
-2.  El panel será accesible en: `http://localhost/Network-Shield-System/server/index.php`.
-
----
+⚠️ AVISO LEGAL: Este software ha sido creado exclusivamente con fines educativos y de investigación en ciberseguridad. El autor no se hace responsable del mal uso de este código. El uso en sistemas sin autorización es ilegal.
 
 📡 Ejecución y Pruebas
 Sigue este orden estricto para establecer el enlace:
@@ -44,7 +15,7 @@ Ejecuta el script en el equipo objetivo para iniciar la conexión:
 
 Modo Manual: python client/agente.py
 
-Modo Invisible: Renombra a agente.pyw y ejecútalo
+Modo Invisible: Renombra a agente.pyw y ejecútalo.
 
 Simulación Web: Accede a http://localhost/Network-Shield-System/server/trampa.php
 
@@ -79,7 +50,7 @@ master/: Consola interactiva C2 (Command & Control).
 
 🚪 Sesión: exit (Cierra la conexión de forma segura).
 
-🛠️ Solución de Problemas (Troubleshooting)
+🛠️ Troubleshooting (Solución de Problemas)
 ¿No conecta?: Verifica que el puerto 4444 esté abierto en el Firewall de Windows.
 
 ¿No aparece en la Web?: Revisa que la URL en agente.py sea la correcta.
