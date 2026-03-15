@@ -65,40 +65,35 @@ DOS
 
 reg delete "HKCU\Software\Microsoft\Windows\CurrentVersion\Run" /v "SecurityUpdate" /f
 
-📁 Estructura del Repositorio
-📂 server/: Código PHP del panel de control, API de reporte (actualizar_estado.php) y configuración de DB.
+## 📁 Estructura del Repositorio
 
-📂 client/: El script agente.py (o agente.pyw para modo invisible).
-
-📂 master/: El script receptor.py para el control remoto interactivo.
-
-📄 readme.md: Documentación completa del proyecto.
-
-📋 Comandos de Prueba Disponibles
-Una vez establecida la conexión en el receptor, puedes usar:
-
-Información: whoami (Usuario), systeminfo (OS), ipconfig (Red).
-
-Archivos: dir (Listar), cd .. (Navegar).
-
-Interacción: start https://google.com (Abrir web), msg * "Sistema Protegido" (Mensaje emergente).
-
-Finalizar: exit (Cierra la sesión del agente).
-
-🛠️ Troubleshooting (Solución de Problemas)
-Error de Conexión: Verifica que el puerto 4444 no esté bloqueado por el Firewall de Windows.
-
-El Agente no aparece en la Web: Asegúrate de que la URL en agente.py coincida exactamente con tu ruta en XAMPP.
-
-Error de MySQL: Verifica en db_config.php que el usuario sea root y la contraseña esté vacía.
-
+* 📂 **server/**: Código PHP del panel de control, API de reporte (`actualizar_estado.php`) y configuración de DB.
+* 📂 **client/**: El script `agente.py` (o `agente.pyw` para modo invisible).
+* 📂 **master/**: El script `receptor.py` para el control remoto interactivo.
+* 📄 **readme.md**: Documentación completa del proyecto.
 
 ---
 
-### ¿Qué he actualizado exactamente?
-1.  **Rutas de Carpeta**: He cambiado todas las menciones de `/miWeb/` a `/Network-Shield-System/server/`.
-2.  **Rutas de Python**: He ajustado los comandos para que incluyan las carpetas `client/` o `master/`.
-3.  **Persistencia**: He actualizado el comando de registro para que apunte a la nueva ruta de XAMPP.
-4.  **Sección de Troubleshooting**: Añadida como sugeriste para dar soporte en errores comunes.
+## 📋 Comandos de Prueba Disponibles
 
-**¿Te gustaría que te ayude a subirlo a GitHub ahora o quieres hacer una prueba final del sistema completo?** Solo dime y te guío.
+Una vez establecida la conexión en el receptor, puedes utilizar los siguientes comandos:
+
+* 💻 **Información**: `whoami` (Usuario), `systeminfo` (OS), `ipconfig` (Red).
+* 📂 **Archivos**: `dir` (Listar), `cd ..` (Navegar).
+* 🌐 **Interacción**: `start https://google.com` (Abrir web), `msg * "Sistema Protegido"` (Mensaje emergente).
+* 🚪 **Finalizar**: `exit` (Cierra la sesión del agente).
+
+---
+
+## 🛠️ Troubleshooting (Solución de Problemas)
+
+* 🔌 **Error de Conexión**: Verifica que el puerto `4444` no esté bloqueado por el Firewall de Windows.
+* 🔍 **Agente no aparece**: Asegúrate de que la URL en `agente.py` coincida exactamente con tu ruta en XAMPP.
+* 🗄️ **Error de MySQL**: Verifica en `db_config.php` que el usuario sea `root` y la contraseña esté vacía.
+
+---
+
+### ¿Qué se ha actualizado en esta versión?
+1. 📂 **Rutas de Carpeta**: Ajustadas para trabajar con las carpetas `client/`, `master/` y `server/`.
+2. 🔑 **Persistencia**: Comando de registro actualizado para apuntar a la nueva ruta de XAMPP.
+3. 🔧 **Sección de Soporte**: Añadida para dar respuesta a errores comunes de configuración.
