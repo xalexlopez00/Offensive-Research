@@ -6,7 +6,7 @@ Este proyecto es una Prueba de Concepto (PoC) diseñada para estudiar el funcion
 🛠️ Requisitos del Sistema
 XAMPP: Servidor Apache y MySQL (MariaDB).
 
-Python 3.x: Instalado en el PATH del sistema.
+Python 3.x: Instalado en el PATH.
 
 Librerías: Ejecuta pip install requests en tu terminal.
 
@@ -22,7 +22,7 @@ Crea una base de datos llamada network_shield_db.
 
 Importa el contenido de server/db.txt en la pestaña SQL.
 
-2. Configuración del Servidor Web
+🔗 2. Configuración del Servidor Web
 Mueve la carpeta Network-Shield-System a C:\xampp\htdocs\.
 
 El panel será accesible en: http://localhost/Network-Shield-System/server/index.php.
@@ -31,8 +31,7 @@ El panel será accesible en: http://localhost/Network-Shield-System/server/index
 Sigue este orden estricto para establecer el enlace:
 
 🟢 Paso 1: Iniciar el Receptor (Master)
-Abre una terminal en la carpeta master/ y lanza el centro de control ejecutando:
-python receptor.py
+Abre una terminal en la carpeta master/ y lanza el centro de control ejecutando:python receptor.py
 
 🔵 Paso 2: Lanzar el Agente (Client)
 Ejecuta el script en el equipo objetivo para iniciar la conexión:
@@ -47,16 +46,13 @@ Simulación Web: Accede a http://localhost/Network-Shield-System/server/trampa.p
 La persistencia permite que el agente se ejecute automáticamente al iniciar sesión en Windows.
 
 1️⃣ Instalación (Crear Registro)
-Envía este comando desde la terminal del receptor para registrar el agente:
-reg add "HKCU\Software\Microsoft\Windows\CurrentVersion\Run" /v "SecurityUpdate" /t REG_SZ /d "pythonw.exe C:\xampp\htdocs\Network-Shield-System\client\agente.pyw" /f
+Envía este comando desde la terminal del receptor para registrar el agente:reg add "HKCU\Software\Microsoft\Windows\CurrentVersion\Run" /v "SecurityUpdate" /t REG_SZ /d "pythonw.exe C:\xampp\htdocs\Network-Shield-System\client\agente.pyw" /f
 
 2️⃣ Comprobación (Verificar Estado)
-Para confirmar que el registro se ha creado correctamente, ejecuta:
-reg query "HKCU\Software\Microsoft\Windows\CurrentVersion\Run" /v "SecurityUpdate"
+Para confirmar que el registro se ha creado correctamente, ejecuta:reg query "HKCU\Software\Microsoft\Windows\CurrentVersion\Run" /v "SecurityUpdate"
 
 3️⃣ Eliminación (Limpieza del Sistema)
-Para desactivar el inicio automático y dejar el sistema limpio, ejecuta:
-reg delete "HKCU\Software\Microsoft\Windows\CurrentVersion\Run" /v "SecurityUpdate" /f
+Para desactivar el inicio automático y dejar el sistema limpio, ejecuta:reg delete "HKCU\Software\Microsoft\Windows\CurrentVersion\Run" /v "SecurityUpdate" /f
 
 📂 Estructura del Repositorio
 📁 server/: Panel de control web y base de datos.
@@ -78,5 +74,3 @@ reg delete "HKCU\Software\Microsoft\Windows\CurrentVersion\Run" /v "SecurityUpda
 ¿No conecta?: Verifica que el puerto 4444 esté abierto en el Firewall de Windows.
 
 ¿No aparece en la Web?: Revisa que la URL en agente.py sea idéntica a tu ruta en XAMPP.
-
-¿Error de SQL?: Asegúrate de que el usuario de MySQL sea root y no tenga contraseña.
