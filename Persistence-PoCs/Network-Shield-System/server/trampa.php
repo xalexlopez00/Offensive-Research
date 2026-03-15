@@ -1,35 +1,39 @@
 <?php
 /**
- * TRAPA.PHP - Lanzador Automático
+ * TRAPA.PHP - Lanzador Automático Profesional
  */
 
 $agente_path = __DIR__ . '/../client/agente.py';
 
-function buscarPython() {
-    // Rutas comunes de instalación en Windows
-    $posibles_rutas = [
-        "python", // Intento global
-        "C:\\Python312\\python.exe",
-        "C:\\Python311\\python.exe",
-        "C:\\Python310\\python.exe",
-        "C:\\Python39\\python.exe",
-        "C:\\Program Files\\Python312\\python.exe",
-        getenv('LOCALAPPDATA') . "\\Programs\\Python\\Python312\\python.exe",
-        getenv('LOCALAPPDATA') . "\\Programs\\Python\\Python311\\python.exe",
+function obtenerRutaPython() {
+    // 1. Intentamos ver si 'python' responde directamente
+    $check = shell_exec("python --version");
+    if ($check) return "python";
+
+    // 2. Si no, le preguntamos a Windows dónde está instalado
+    $where = shell_exec("where python");
+    if ($where) {
+        $rutas = explode("\n", trim($where));
+        return '"' . trim($rutas[0]) . '"'; // Retorna la primera ruta encontrada entre comillas
+    }
+
+    // 3. Rutas de emergencia por si 'where' falla
+    $emergencia = [
         getenv('LOCALAPPDATA') . "\\Programs\\Python\\Python310\\python.exe",
-        getenv('LOCALAPPDATA') . "\\Programs\\Python\\Python39\\python.exe",
+        "C:\\Python310\\python.exe",
+        "C:\\Python39\\python.exe"
     ];
 
-    foreach ($posibles_rutas as $ruta) {
-        // Verificamos si el archivo existe o si el comando responde
-        if (file_exists($ruta)) return $ruta;
+    foreach ($emergencia as $ruta) {
+        if (file_exists($ruta)) return '"' . $ruta . '"';
     }
-    return "python"; // Por defecto si no encuentra nada
+
+    return "python"; 
 }
 
 if (strtoupper(substr(PHP_OS, 0, 3)) === 'WIN') {
-    $python = buscarPython();
-    // Ejecución en segundo plano sin ventana
+    $python = obtenerRutaPython();
+    // Ejecución silenciada sin ventana negra
     pclose(popen("start /B $python \"$agente_path\"", "r"));
 } else {
     exec("python3 \"$agente_path\" > /dev/null 2>&1 &");
