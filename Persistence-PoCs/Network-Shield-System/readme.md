@@ -1,4 +1,3 @@
-Entiendo perfectamente el error. Lo que está pasando es que te falta cerrar el bloque de código del Paso 1. Como no pones las comillas de cierre (```), Markdown mete todo el resto del texto dentro de ese recuadro gris.Para que se vea impecable, fuera de recuadros y con cada paso en su sitio, borra todo tu README y pega este código exacto. He puesto separadores claros para que no se vuelvan a juntar.Markdown# 🛡️ Network Shield - Remote Administration System (PoC)
 
 Este proyecto es una **Prueba de Concepto (PoC)** diseñada para estudiar el funcionamiento de los sistemas de administración remota (C2) y las técnicas de persistencia en entornos Windows.
 
