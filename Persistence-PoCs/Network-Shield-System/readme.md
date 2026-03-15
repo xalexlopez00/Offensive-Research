@@ -46,10 +46,11 @@ Para establecer una conexión exitosa, sigue este orden:
 
 La persistencia permite que el agente se ejecute automáticamente cada vez que el usuario inicie sesión en Windows.
 
-### 1. Instalación (Crear la persistencia)
+1. Instalación (Crear la persistencia)
 Envía este comando desde la terminal del receptor (ajusta la ruta según la ubicación real del archivo):
 
-```cmd
+DOS
+
 reg add "HKCU\Software\Microsoft\Windows\CurrentVersion\Run" /v "SecurityUpdate" /t REG_SZ /d "pythonw.exe C:\xampp\htdocs\Network-Shield-System\client\agente.pyw" /f
 2. Comprobación (Verificar estado)
 Para confirmar que el registro se ha creado correctamente, ejecuta:
@@ -63,6 +64,7 @@ Para desactivar el inicio automático y dejar el sistema limpio, ejecuta:
 DOS
 
 reg delete "HKCU\Software\Microsoft\Windows\CurrentVersion\Run" /v "SecurityUpdate" /f
+
 📁 Estructura del Repositorio
 📂 server/: Código PHP del panel de control, API de reporte (actualizar_estado.php) y configuración de DB.
 
