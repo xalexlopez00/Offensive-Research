@@ -1,55 +1,37 @@
-Aquí tienes el código completo y definitivo para tu README.md. He aplicado el diseño más moderno disponible en GitHub, usando botones interactivos, separadores visuales limpios (como los de tu referencia) y una organización profesional que evita que el texto se amontone.
+🛡️ Network Shield - Remote Administration System (PoC)
+Este proyecto es una Prueba de Concepto (PoC) diseñada para estudiar el funcionamiento de los sistemas de administración remota (C2) y las técnicas de persistencia en entornos Windows.
 
-<p align="center">🛡️ Network Shield</p>
-<p align="center">Remote Administration System (PoC)</p>
-<p align="center">
-<a href="#-requisitos-del-sistema">
-<img src="https://img.shields.io/badge/Network_Shield-Documentación-007bff?style=for-the-badge&logo=opsgenie" alt="Docs">
-</a>
-<a href="https://www.python.org/downloads/">
-<img src="https://img.shields.io/badge/Python-Descargar-ffd343?style=for-the-badge&logo=python&logoColor=black" alt="Python">
-</a>
-<a href="#-solución-de-problemas-troubleshooting">
-<img src="https://img.shields.io/badge/Soporte-Errores_Comunes-f44336?style=for-the-badge" alt="Errores">
-</a>
-</p>
-
-<p align="center">
-<b>Prueba de Concepto avanzada para el estudio de sistemas de administración remota (C2) y técnicas de persistencia en entornos Windows.</b>
-</p>
-
-<p align="center">⚠️ AVISO LEGAL CRÍTICO</p>
-<p align="center"><i>Este software ha sido creado exclusivamente con fines educativos e investigación en ciberseguridad. El autor no se hace responsable del mal uso de este código. El uso en sistemas sin autorización es ilegal.</i></p>
+⚠️ AVISO LEGAL: Este software ha sido creado exclusivamente con fines educativos e investigación en ciberseguridad. El autor no se hace responsable del mal uso de este código. El uso en sistemas sin autorización es ilegal.
 
 🛠️ Requisitos del Sistema
-XAMPP: Servidor Apache y MySQL (MariaDB) instalados y activos.
+XAMPP: Servidor Apache y MySQL (MariaDB) instalados.
 
-Python 3.x: Instalado y configurado correctamente en el PATH.
+Python 3.x: Instalado y configurado en el PATH.
 
 Librerías: Ejecuta pip install requests en tu terminal.
 
-Base de Datos: Importar el esquema incluido en el archivo server/db.txt.
+Base de Datos: Importar el esquema incluido en server/db.txt.
 
 🚀 Guía de Instalación y Configuración
 1. Preparación de la Base de Datos
-Inicia Apache y MySQL desde el panel de control de XAMPP.
+Inicia Apache y MySQL desde el panel de XAMPP.
 
 Accede a http://localhost/phpmyadmin.
 
 Crea una base de datos llamada network_shield_db.
 
-Importa el contenido de server/db.txt desde la pestaña SQL.
+Importa el contenido de server/db.txt en la pestaña SQL.
 
 2. Configuración del Servidor Web
-Mueve la carpeta Network-Shield-System a la ruta C:\xampp\htdocs\.
+Mueve la carpeta Network-Shield-System a **C:\xampp\htdocs**.
 
 El panel será accesible en: http://localhost/Network-Shield-System/server/index.php.
 
 📡 Ejecución y Pruebas
-Sigue este orden estricto para establecer el enlace correctamente:
+Sigue este orden estricto para establecer el enlace:
 
 🟢 Paso 1: Iniciar el Receptor (Master)
-Abre una terminal en la carpeta master/ y lanza el centro de control ejecutando:
+Abre una terminal en la carpeta master/ y lanza el centro de control:
 python receptor.py
 
 🔵 Paso 2: Lanzar el Agente (Client)
@@ -57,12 +39,12 @@ Ejecuta el script en el equipo objetivo para iniciar la conexión:
 
 Modo Manual: python client/agente.py
 
-Modo Invisible: Renombra el archivo a agente.pyw y ejecútalo.
+Modo Invisible: Renombra a agente.pyw y ejecútalo.
 
 Simulación Web: Accede a http://localhost/Network-Shield-System/server/trampa.php
 
 🔐 Implementación de Persistencia
-La persistencia permite que el agente se ejecute automáticamente al iniciar sesión.
+La persistencia permite que el agente se ejecute automáticamente al iniciar sesión en Windows.
 
 1️⃣ Instalación (Crear Registro)
 Envía este comando desde la terminal del receptor para registrar el agente:
@@ -93,14 +75,8 @@ reg delete "HKCU\Software\Microsoft\Windows\CurrentVersion\Run" /v "SecurityUpda
 🚪 Sesión: exit (Cierra la conexión de forma segura).
 
 🛠️ Solución de Problemas (Troubleshooting)
-❌ Error "Windows no puede encontrar el archivo 'python'":
-Este error ocurre porque el servidor Apache no reconoce el comando global. Para solucionarlo, edita tu archivo trampa.php y cambia python por la ruta absoluta de tu ejecutable.
-Ejemplo: C:\Users\TuUsuario\AppData\Local\Programs\Python\Python39\python.exe
+¿Error "Windows no encuentra el archivo python"?: Asegúrate de que Python esté en las variables de entorno o usa la ruta completa en tu archivo PHP (Ej: C:\Python39\python.exe).
 
-🌐 No aparece en el Panel Web: Revisa que la URL en agente.py coincida exactamente con tu carpeta en htdocs.
+¿No conecta?: Verifica que el puerto 4444 esté abierto en el Firewall de Windows.
 
-🔥 Firewall: Verifica que el puerto 4444 esté permitido para conexiones entrantes.
-
-<p align="center">
-Desarrollado con ❤️ para fines de aprendizaje en Ciberseguridad
-</p>
+¿Error de SQL?: Asegúrate de que el usuario de MySQL sea root y no tenga contraseña.
