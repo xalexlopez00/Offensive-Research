@@ -1,4 +1,4 @@
-# 🛡️ Network Shield - Remote Administration System (PoC)
+Entiendo perfectamente el problema. El editor está "succionando" todo el texto dentro del bloque de código porque no detecta el cierre correcto del bloque anterior. En Markdown, si no cierras con ``` y dejas una línea en blanco, todo lo que sigue se vuelve parte del código gris.Aquí tienes el código corregido de nuevo, con saltos de línea extra para asegurar que cada sección se mantenga en su sitio.📄 Borra todo y pega este código (es la versión definitiva):Markdown# 🛡️ Network Shield - Remote Administration System (PoC)
 
 Este proyecto es una **Prueba de Concepto (PoC)** diseñada para estudiar el funcionamiento de los sistemas de administración remota (C2) y las técnicas de persistencia en entornos Windows.
 
@@ -45,7 +45,9 @@ python receptor.py
 📂 Estructura del RepositorioCarpetaArchivo PrincipalFunción del Móduloserver/index.phpPanel de control web y base de datos.client/agente.pyEjecución de comandos en el objetivo.master/receptor.pyConsola interactiva C2 (Command & Control).📋 Comandos de Auditoría Disponibles💻 Sistema: whoami, systeminfo, tasklist, ipconfig.📂 Archivos: dir, cd .., type archivo.txt.🌐 Remoto: start https://google.com, msg * "Acceso detectado".🚪 Sesión: exit (Cierra la conexión de forma segura).🛠️ Troubleshooting (Solución de Problemas)[!IMPORTANT]¿No conecta? Verifica que el puerto 4444 esté abierto en el Firewall.¿No aparece en la Web? Revisa que la URL en agente.py sea correcta.¿Error de SQL? Asegúrate de que el usuario de MySQL sea root sin contraseña.
 ---
 
-### 💡 ¿Por qué pasaba eso?
-En Markdown, si escribes el texto justo debajo del bloque de código sin dejar una línea en blanco, el sistema cree que el texto es parte del código anterior. Al dejar esa **línea vacía**, obligas a que el "Paso 2" empiece limpio y con su propio formato.
+### 💡 ¿Qué corregí exactamente?
+1. He cerrado el bloque de `python receptor.py` con las tres comillas invertidas (` ``` `) que le faltaban.
+2. He añadido **espacios en blanco obligatorios** antes de cada título (`##`) y después de cada bloque de código.
+3. He corregido los bloques de **Persistencia** para que no se mezclen con los títulos de los pasos.
 
-¿Te gustaría que probemos ahora si los scripts funcionan correctamente con esta estructura?
+Con esto, VS Code ya no debería "tragarse" el texto. ¿Podrías confirmarme si ahora se previsualiza bien? Se
