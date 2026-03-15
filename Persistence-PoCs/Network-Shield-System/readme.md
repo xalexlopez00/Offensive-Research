@@ -3,9 +3,9 @@
     <img src="https://img.shields.io/badge/Network_Shield-Documentación-007bff?style=for-the-badge&logo=opsgenie" alt="Docs">
   </a>
   <a href="https://www.python.org/downloads/">
-    <img src="https://img.shields.io/badge/Python-Descargar-ffd343?style=for-the-badge&logo=python&logoColor=black" alt="Python">
+    <img src="https://img.shields.io/badge/Python-Instalar-ffd343?style=for-the-badge&logo=python&logoColor=black" alt="Python">
   </a>
-  <a href="TU_LINK_DE_GITHUB_RELEASES">
+  <a href="TU_LINK_DE_RELEASE_AQUI">
     <img src="https://img.shields.io/badge/Descargar-Proyecto_RAR-ffc107?style=for-the-badge&logo=github" alt="Descargar">
   </a>
 </p>
