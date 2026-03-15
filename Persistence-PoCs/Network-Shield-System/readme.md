@@ -11,7 +11,7 @@
 
 Este proyecto es una **Prueba de Concepto (PoC)** diseñada para estudiar el funcionamiento de los sistemas de administración remota (C2) y las técnicas de persistencia en entornos Windows.
 
-**⚠️ AVISO LEGAL:** Este software ha sido creado exclusivamente con fines educativos e investigación en ciberseguridad. El autor no se hace responsable del mal uso de este código. El uso en sistemas sin autorización es ilegal.
+**⚠️ AVISO LEGAL:** Este software ha sido creado exclusivamente con fines educativos e investigación en ciberseguridad. El autor no se hace responsable del mal uso de este código.
 
 ---
 
@@ -92,7 +92,7 @@ Ejecuta el script en el equipo objetivo para iniciar la conexión:
 
 ## 🛠️ Solución de Problemas (Troubleshooting)
 
-* **❌ Error de Python**: Si Windows no encuentra el archivo, el script `trampa.php` ahora lo busca automáticamente en las rutas comunes.
+* **❌ Error "Windows no encuentra el archivo python"**: El script `trampa.php` ahora incluye un buscador automático que consulta al sistema la ubicación exacta del ejecutable.
 * **🌐 ¿No conecta?**: Verifica que el puerto **4444** esté abierto en el Firewall de Windows.
 * **🗄️ ¿Error de SQL?**: Asegúrate de que el usuario de MySQL sea **root** y no tenga contraseña.
 
