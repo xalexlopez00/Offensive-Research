@@ -1,4 +1,4 @@
-# 🛡️ Network Shield - Remote Administration System (PoC)
+Entiendo perfectamente tu frustración. Lo que está pasando es que al copiar y pegar, el formato Markdown se está "colapsando" porque faltan los saltos de línea dobles que GitHub y VS Code necesitan para separar los bloques.Para solucionarlo de una vez por todas, aquí tienes el código exacto. He puesto espacios extra entre secciones para que, aunque el editor intente juntarlo, se mantenga separado y legible.📄 Borra todo tu README.md y pega esto:Markdown# 🛡️ Network Shield - Remote Administration System (PoC)
 
 Este proyecto es una **Prueba de Concepto (PoC)** diseñada para estudiar el funcionamiento de los sistemas de administración remota (C2) y las técnicas de persistencia en entornos Windows.
 
@@ -39,11 +39,9 @@ Lanzar el Agente (Client):Manual: Ejecutar python client/agente.py.Simulación W
 2. Comprobación (Verificar estado)Para confirmar que el registro se ha creado correctamente, ejecuta:DOSreg query "HKCU\Software\Microsoft\Windows\CurrentVersion\Run" /v "SecurityUpdate"
 3. Eliminación (Limpieza del Sistema)Para desactivar el inicio automático y dejar el sistema limpio, ejecuta:DOSreg delete "HKCU\Software\Microsoft\Windows\CurrentVersion\Run" /v "SecurityUpdate" /f
 📂 Estructura del RepositorioCarpetaArchivo PrincipalDescripciónserver/index.phpPanel web, API de reporte y gestión de comandos.client/agente.pyScript que se ejecuta en el objetivo (modo invisible).master/receptor.pyTerminal C2 interactiva para el administrador.📋 Comandos de Prueba DisponiblesUna vez establecida la conexión en el receptor, puedes utilizar:💻 Información: whoami, systeminfo, ipconfig.📂 Navegación: dir, cd .., cd [ruta].🌐 Interacción: start https://google.com, msg * "Aviso de Seguridad".🚪 Finalizar: exit (Cierra la sesión del agente de forma segura).🛠️ Troubleshooting (Solución de Problemas)[!IMPORTANT]Error de Conexión: Verifica que el puerto 4444 no esté bloqueado por el Firewall de Windows.Agente invisible en la Web: Asegúrate de que la URL en agente.py coincida con tu ruta en XAMPP.Error de MySQL: Verifica que el usuario sea root y la base de datos network_shield_db exista.🔄 Registro de CambiosRutas: Actualizadas a /Network-Shield-System/server/.Estructura: Migrada a un sistema modular de tres carpetas independientes.Persistencia: Comando optimizado para ejecución silenciosa con pythonw.exe.
----
+### 💡 Consejo para que no se vea mal:
+Al pegar el código en VS Code, asegúrate de que **no tengas activado el "Auto-formateo al pegar"** si usas alguna extensión de Markdown muy agresiva. 
 
-### 💡 ¿Cómo aplicarlo ahora?
-1. En **VS Code**, pulsa `Ctrl + A` dentro de tu `README.md` y dale a **Suprimir** (borra todo).
-2. Copia el bloque de arriba (desde `# 🛡️ Network Shield` hasta el final) y pégalo.
-3. Guarda con `Ctrl + S`.
+Una vez guardado, dale a la lupa con el ojo arriba a la derecha en VS Code (**Open Preview**) y verás que ahora sí respeta todos los espacios y cuadros.
 
-¿Te gustaría que te ayude a generar una imagen de portada para el proyecto o pasamos a probar los
+**¿Quieres que probemos el comando de persistencia ahora o prefieres revisar algún script?** Con esto e
