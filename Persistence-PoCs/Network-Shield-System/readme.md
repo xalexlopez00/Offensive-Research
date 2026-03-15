@@ -30,18 +30,16 @@ Este proyecto es una **Prueba de Concepto (PoC)** diseñada para estudiar el fun
 ## 🚀 Guía de Instalación y Configuración
 
 ### 1. Preparación de la Base de Datos
-
-1.  Inicia **Apache** y **MySQL** desde el panel de XAMPP.
-2.  Accede a **http://localhost/phpmyadmin**.
-3.  Crea una base de datos llamada **network_shield_db**.
-4.  Importa el contenido de **server/db.txt** en la pestaña **SQL**.
+1. Inicia **Apache** y **MySQL** desde el panel de XAMPP.
+2. Accede a **http://localhost/phpmyadmin**.
+3. Crea una base de datos llamada **network_shield_db**.
+4. Importa el contenido de **server/db.txt** en la pestaña **SQL**.
 
 ---
 
 ### 2. Configuración del Servidor Web
-
-1.  Mueve la carpeta **Network-Shield-System** a **C:\xampp\htdocs\**.
-2.  El panel será accesible en: **http://localhost/Network-Shield-System/server/index.php**.
+1. Mueve la carpeta **Network-Shield-System** a **C:\xampp\htdocs\**.
+2. El panel será accesible en: **http://localhost/Network-Shield-System/server/index.php**.
 
 ---
 
@@ -50,7 +48,7 @@ Este proyecto es una **Prueba de Concepto (PoC)** diseñada para estudiar el fun
 Sigue este orden estricto para establecer el enlace:
 
 ### 🟢 Paso 1: Iniciar el Receptor (Master)
-Abre una terminal en la carpeta master/ y lanza el centro de control ejecutando:
+Abre una terminal en la carpeta master/ y lanza el centro de control:
 **python receptor.py**
 
 ---
@@ -64,8 +62,6 @@ Ejecuta el script en el equipo objetivo para iniciar la conexión:
 ---
 
 ## 🔐 Implementación de Persistencia
-
-La persistencia permite que el agente se ejecute automáticamente al iniciar sesión en Windows.
 
 ### 1️⃣ Instalación (Crear Registro)
 Envía este comando desde la terminal del receptor para registrar el agente:
@@ -104,7 +100,9 @@ Para desactivar el inicio automático y dejar el sistema limpio, ejecuta:
 
 ## 🛠️ Solución de Problemas (Troubleshooting)
 
-* **❌ Error "Windows no encuentra el archivo python"**: Este error en `trampa.php` ocurre porque Apache no detecta la ruta de Python. Edita tu archivo PHP y usa la ruta completa. Ejemplo: **C:\Python39\python.exe**.
+* **❌ Error "Windows no puede encontrar el archivo python"**: 
+  Este error ocurre al ejecutar `trampa.php`. Para solucionarlo, debes editar el código de tu archivo PHP y cambiar el comando por la ruta absoluta de Python.
+  *Ejemplo:* `exec("C:\\Users\\TuUsuario\\AppData\\Local\\Programs\\Python\\Python39\\python.exe ..\\client\\agente.py");`
 * **🌐 ¿No conecta?**: Verifica que el puerto **4444** esté abierto en el Firewall de Windows.
 * **🗄️ ¿Error de SQL?**: Asegúrate de que el usuario de MySQL sea **root** y no tenga contraseña.
 
