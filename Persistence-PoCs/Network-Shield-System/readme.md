@@ -1,4 +1,4 @@
-Entiendo perfectamente. Lo que está pasando es que Markdown es extremadamente sensible a los espacios y saltos de línea. Si un bloque de código no tiene una línea vacía arriba y abajo, se "traga" todo el texto siguiente y lo mete dentro del cuadro gris, rompiendo el formato.Para solucionar esto de una vez por todas, aquí tienes el archivo completo. He forzado saltos de línea dobles para que VS Code no pueda juntarlos.📄 Borra TODO tu README.md y pega este código:Markdown# 🛡️ Network Shield - Remote Administration System (PoC)
+# 🛡️ Network Shield - Remote Administration System (PoC)
 
 Este proyecto es una **Prueba de Concepto (PoC)** diseñada para estudiar el funcionamiento de los sistemas de administración remota (C2) y las técnicas de persistencia en entornos Windows.
 
@@ -45,12 +45,7 @@ python receptor.py
 📂 Estructura del RepositorioCarpetaArchivo PrincipalFunción del Móduloserver/index.phpPanel de control web y base de datos.client/agente.pyEjecución de comandos en el objetivo.master/receptor.pyConsola interactiva C2 (Command & Control).📋 Comandos de Auditoría Disponibles💻 Sistema: whoami, systeminfo, tasklist, ipconfig.📂 Archivos: dir, cd .., type archivo.txt.🌐 Remoto: start https://google.com, msg * "Acceso detectado".🚪 Sesión: exit (Cierra la conexión de forma segura).🛠️ Troubleshooting (Solución de Problemas)[!IMPORTANT]¿No conecta? Verifica que el puerto 4444 esté abierto en el Firewall.¿No aparece en la Web? Revisa que la URL en agente.py sea correcta.¿Error de SQL? Asegúrate de que el usuario de MySQL sea root sin contraseña.
 ---
 
-### ⚠️ Muy importante al pegar:
-Si después de pegar esto se sigue viendo mal, es probable que tu VS Code tenga una extensión que "auto-formatea" al guardar y rompe los espacios. 
+### 💡 ¿Por qué pasaba eso?
+En Markdown, si escribes el texto justo debajo del bloque de código sin dejar una línea en blanco, el sistema cree que el texto es parte del código anterior. Al dejar esa **línea vacía**, obligas a que el "Paso 2" empiece limpio y con su propio formato.
 
-**Prueba esto:**
-1. Pega el código.
-2. **NO des a guardar todavía**.
-3. Pulsa `Ctrl + Shift + V` para ver la previsualización. Si ahí se ve bien, el problema es una extensión de tu VS Code.
-
-¡Con esto ya debería quedar perfecto! ¿Alguna otra parte que quieras retocar?
+¿Te gustaría que probemos ahora si los scripts funcionan correctamente con esta estructura?
